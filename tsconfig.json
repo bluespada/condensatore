@@ -7,22 +7,17 @@
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "jsx": "preserve",
-        "jsxImportSource": "solid-js",
+        "jsxImportSource": "react",
         "noEmit": true,
         "isolatedModules": true,
         "resolveJsonModule": true,
         "baseUrl": ".",
         "paths": {
-            "@web/*": ["web/src/*"],
-            "@server/*": ["server/*"],
-            "@scripts/*": ["scripts/*"]
+            "@utils/*": ["src/utils/*"],
+            "@controller/*": ["src/controller/*"]
         },
         "experimentalDecorators": true,
     },
-    "include": [
-        "web/src/**/*",
-        "server/**/*",
-    ],
     "exclude": [
         "node_modules",
         "dist"

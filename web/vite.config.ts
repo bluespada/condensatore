@@ -1,10 +1,11 @@
 import { defineConfig } from 'vite';
-import solidPlugins from 'vite-plugin-solid';
+import react from '@vitejs/plugin-react';
 import path from 'path';
+
 
 export default defineConfig({
     plugins: [
-        solidPlugins(),
+        react(),
     ],
     resolve: {
         alias: {

@@ -12,11 +12,7 @@
  * 
  */
 
-import { render } from 'solid-js/web';
-import App from '@web/App';
+import { createRoot } from 'react-dom/client';
 
-// render the web application
-render(
-    () => <App/>,
-    document.getElementById('zeus') as HTMLElement,
-);
+
+const root = createRoot(document.getElementById("zeus") as HTMLElement);

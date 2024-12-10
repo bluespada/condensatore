@@ -8,5 +8,15 @@
     },
     "author": "",
     "license": "MIT",
-    "description": ""
+    "description": "",
+    "devDependencies": {
+        "@types/react": "^19.0.1",
+        "@types/react-dom": "^19.0.2",
+        "sass": "^1.82.0"
+    },
+    "dependencies": {
+        "@vitejs/plugin-react": "^4.3.4",
+        "react": "^19.0.0-rc.1",
+        "react-dom": "^19.0.0-rc.1"
+    }
 }

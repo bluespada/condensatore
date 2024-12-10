@@ -14,18 +14,27 @@
 
 import { Context, Hono } from 'hono';
 import { getRoute } from '@server/src/core/annotation';
+import { AuthMiddleware } from '@server/src/core/middleware';
 import '@server/src/controller';
 
 const app = new Hono();
 
 
 for(const route of getRoute()){
+    if(route.auth) app.use(route.path, AuthMiddleware)
     switch(route.method.toUpperCase()){
         case "POST":
-            app.post(route.path, route.fn);
+            app.post(
+                route.path,
+                route.fn,
+            );
             break;
         default:
-            app.get(route.path, route.fn);
+            app.get(
+                route.path,
+                route.fn,
+
+            );
             break;
     }
 

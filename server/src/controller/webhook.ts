@@ -24,7 +24,7 @@ export default class WebhookController {
         });
     }
 
-    @Http.Route({ path: "/webhook/event/pull/{platform_id}/{repo_id}", method: "POST" })
+    @Http.Route({ path: "/webhook/event/pull", method: "POST" })
     public EventPull(c: Context){
         return c.json({
             error: false,

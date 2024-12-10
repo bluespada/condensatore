@@ -14,7 +14,6 @@ Your support makes Condensatore better! ❤️ Sponsorships allow us to dedicate
 **How You Can Sponsor**
 - Become [GitHub Sponsor](https://github.com/sponsors/mathca-labs).
 
-
 # License
 
 Condensatore is under MIT License, You should have received a copy of MIT LIcense along with Condensatore source code.

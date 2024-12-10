@@ -15,15 +15,21 @@
 import { Http } from '@server/src/core/annotation';
 import { Context } from 'hono';
 
-export default class ApiController {
-    
-    @Http.Route({ 
-        path: "/api", 
-        method: "GET", 
-        auth: true, 
-        csrf: true 
-    })
+export default class WebhookController {
+
+    @Http.Route({ path: "/webhook", method: "GET" })
     public index(c: Context){
-        return c.json({ message: "Hello World" });
+        return c.json({
+
+        });
     }
-}
+
+    @Http.Route({ path: "/webhook/event/pull/{platform_id}/{repo_id}", method: "POST" })
+    public EventPull(c: Context){
+        return c.json({
+            error: false,
+            messages: "",
+            data: [],
+        });
+    }
+};

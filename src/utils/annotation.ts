@@ -14,12 +14,12 @@
 
 import { IHonoRouteMethod, setRoute } from '@utils/router';
 
-function Route(path: string, { method = "GET", middleware = [] }:{ method: IHonoRouteMethod, middleware: any[] }){
+function Route(path: string, props? : { method?: IHonoRouteMethod, middleware?: any[] }){
     return function(target: any, propertyKey: any, descriptor: PropertyDescriptor){
         setRoute({
             path: path,
-            method: method,
-            middleware: middleware,
+            method: props?.method??"GET",
+            middleware: props?.middleware??[],
             fn: descriptor.value,
         });
     }

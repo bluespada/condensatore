@@ -14,6 +14,7 @@
         "baseUrl": ".",
         "paths": {
             "@utils/*": ["src/utils/*"],
+            "@views/*": ["src/views/*"],
             "@controller/*": ["src/controller/*"]
         },
         "experimentalDecorators": true,

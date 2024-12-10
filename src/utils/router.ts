@@ -27,10 +27,10 @@ const HonoRouters : IHonoRouters[] = [];
 
 export const useRoute = (app: Hono) => {
     for(const route of HonoRouters){
-        console.log(`Route ${route.method} ${route.path} -> ${route.fn.name}`);
+        // initialize middleware for the routers
         switch(route.method){
             default:
-                app.get(route.path, route.fn, ...route.middleware);
+                app.get(route.path, ...route.middleware,route.fn);
                 break;
         }
     }

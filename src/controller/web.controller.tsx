@@ -14,19 +14,18 @@
 
 import { Context } from 'hono';
 import { Http } from '@utils/annotation';
-import { API_VERSION } from '@utils/static';
+import { Auth, Example } from '@utils/middleware';
 
-export default class ApiController {
+import DashboardViews from '@views/dashboard/dashboard.views';
 
-    @Http.Route("/api", { method: "GET", middleware: [] })
-    public async index(c: Context){
-        return c.json({
-            error: false,
-            messages: "",
-            data: {
-                server: `condensator with hono `,
-                version: API_VERSION
-            }
-        });
+export default class WebController {
+
+    // dashboard
+    @Http.Route("/", { middleware: [
+        Auth({ mustGroup: "base.group_no_one" }),
+    ] })
+    public async dashboard(c: Context){
+        return c.render(<DashboardViews/>, { title: "Dashboard" })
     }
-}
+
+};

@@ -14,8 +14,10 @@
         "baseUrl": ".",
         "paths": {
             "@web/*": ["web/src/*"],
-            "@server/*": ["server/*"]
-        }
+            "@server/*": ["server/*"],
+            "@scripts/*": ["scripts/*"]
+        },
+        "experimentalDecorators": true,
     },
     "include": [
         "web/src/**/*",

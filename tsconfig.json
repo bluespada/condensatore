@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "target": "esnext",
+        "module": "esnext",
+        "strict": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "jsx": "preserve",
+        "jsxImportSource": "solid-js",
+        "noEmit": true,
+        "isolatedModules": true,
+        "resolveJsonModule": true,
+        "baseUrl": ".",
+        "paths": {
+            "@web/*": ["web/src/*"],
+            "@server/*": ["server/*"]
+        }
+    },
+    "include": [
+        "web/src/**/*",
+        "server/**/*",
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}

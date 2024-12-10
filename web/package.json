@@ -1,0 +1,12 @@
+{
+    "name": "web",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "vite --port 3001",
+        "build": "vite build",
+        "start": "vite start"
+    },
+    "author": "",
+    "license": "MIT",
+    "description": ""
+}

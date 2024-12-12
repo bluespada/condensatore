@@ -12,5 +12,15 @@
  * 
 */
 
-export * from './api.controller';
-export * from './web.controller';
+import { NextResponse, MiddlewareConfig } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+export async function middleware(req: NextRequest) : Promise<NextResponse> {
+    return NextResponse.next();
+};
+
+export const config : MiddlewareConfig = {
+    matcher: [
+        '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)'
+    ]
+};

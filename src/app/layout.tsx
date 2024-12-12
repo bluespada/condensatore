@@ -13,32 +13,19 @@
 */
 
 import React from 'react';
-import { Hono } from 'hono';
-import { reactRenderer } from '@hono/react-renderer';
-import { useRoute } from '@utils/router';
-import "@controller/index";
 
-const app = new Hono();
-
-app.get(
-    "*",
-    reactRenderer(({  children, title }: any) => {
-        return (<html>
+export default function AppLayout({ children }:{ children: React.ReactNode }) : React.ReactNode {
+    return (<>
+        <html>
             <head>
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>{ title }</title>
             </head>
             <body>
-                <div id="zeus">{ children }</div>
+                <div id="zeus">
+                    { children }
+                </div>
             </body>
-        </html>);
-    })
-);
-
-useRoute(app);
-
-export default {
-    port: 3001,
-    fetch: app.fetch,
-};
+        </html>
+    </>);
+}

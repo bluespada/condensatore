@@ -11,19 +11,31 @@
  * If not, see <https://mit-license.org/>.
  * 
 */
-
+"use server";
 import React from 'react';
+import { useThemes } from '@app/utils/themes';
+import { CookiesProvider } from 'next-client-cookies/server';
+import '@fontsource/plus-jakarta-sans';
+import '@fontsource/geist-sans';
+import '@app/assets/main.scss';
 
-export default function AppLayout({ children }:{ children: React.ReactNode }) : React.ReactNode {
+export default async function AppLayout({ children }:{ children: React.ReactNode }) : Promise<React.ReactNode> {
+
+    // because is not react hooks but hook server function
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { value } = await useThemes();
+
     return (<>
-        <html>
+        <html lang={`en`} data-theme={value}>
             <head>
                 <meta charSet="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </head>
             <body>
                 <div id="zeus">
-                    { children }
+                    <CookiesProvider>
+                        { children }
+                    </CookiesProvider>
                 </div>
             </body>
         </html>

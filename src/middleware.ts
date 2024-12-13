@@ -19,7 +19,7 @@ import type { NextRequest } from 'next/server';
 export async function middleware(req: NextRequest) : Promise<NextResponse> {
     if(req.nextUrl.pathname == "/"){
         // check for session login
-        // return NextResponse.redirect(new URL("/login", req.url));
+        return NextResponse.redirect(new URL("/login", req.url));
     }
     return NextResponse.next();
 };

@@ -15,13 +15,11 @@
 import React from 'react';
 import { Metadata } from 'next';
 
-export async function generateMetadata() : Promise<Metadata> {
-    return {
-        title: "Dashboard"
-    }
-}
+export const metadata : Metadata = {
+    title : "Login - Condensatore"
+};
 
-export default async function AppDashboard(){
+export default function LoginViews() : React.ReactNode {
     return (<>
-    </>);
+    </>)
 }

@@ -20,12 +20,12 @@ export default function AppLoginTemplate({ children }:{ children: React.ReactNod
     return (<>
         <CommonHeaderComponents/>
         <main className="w-full h-full min-h-screen flex flex-col items-center gap-5 pt-12">
-            <div className="w-1/2 text-center flex flex-col">
+            <div className="w-1/2 text-center flex flex-col pb-8">
                 <span className="text-3xl font-semibold">Log In To Condensatore</span>
                 <span className="text-xs dark:text-gray-300 text-gray-500">One Step Ahead!!</span>
             </div>
-            <div className="w-1/4 rounded-md card dark:bg-card-dark bg-card-light dark:shadow-black/10 shadow-gray-800/5 dark:shadow-xl shadow-lg">
-                <div className="card-body">
+            <div className="w-1/4 rounded-xl card dark:bg-card-dark bg-card-light dark:shadow-black/10 shadow-gray-800/5 dark:shadow-xl shadow-lg">
+                <div className="card-body p-6">
                     { children }
                 </div>
             </div>

@@ -14,12 +14,12 @@
 
 import React from 'react';
 import { Metadata } from 'next';
+import LoginFormComponent from '@app/components/app/login/LoginFormComponent';
 
 export const metadata : Metadata = {
     title : "Login - Condensatore"
 };
 
 export default function LoginViews() : React.ReactNode {
-    return (<>
-    </>)
+    return <LoginFormComponent/>
 }

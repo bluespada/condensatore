@@ -5,7 +5,12 @@ module.exports = {
     ],
     theme: {
         extend: {
-
+            colors: {
+                card: {
+                    dark: "#272726",
+                    light: "#FFFFFF"
+                }
+            }
         },
     },
     plugins: [
@@ -18,14 +23,16 @@ module.exports = {
                 light: {
                     // eslint-disable-next-line @typescript-eslint/no-require-imports
                     ...require("daisyui/src/theming/themes")["light"],
-                    primary: "#242425",
+                    primary: "#1E1E1E",
+                    "base-content": "#1B1B1B",
                     "base-100": "#F4F4F4", 
                 },
                 dark: {
                     // eslint-disable-next-line @typescript-eslint/no-require-imports
                     ...require("daisyui/src/theming/themes")["dark"],
                     primary: "#F4F4F4",
-                    "base-100": "#242425"
+                    "base-content": "#F8F8F8",
+                    "base-100": "#1E1E1E"
                 },
             },
         ],

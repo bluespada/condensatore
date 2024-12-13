@@ -15,6 +15,7 @@
 import React from 'react';
 import { ThemeSwitcherComponents } from '@app/utils/themes';
 import { LuDot } from 'react-icons/lu';
+import Link from 'next/link';
 
 export default function CommonFooterComponent() : React.ReactNode {
     return (<>
@@ -27,13 +28,13 @@ export default function CommonFooterComponent() : React.ReactNode {
                     </div>
                 </div>
             </div>
-            <div className="w-full flex flex-row items-center justify-between">
-                <div className="text-blue-500 text-xs flex flex-row items-center">
+            <div className="w-full flex flex-row items-center justify-between pb-6">
+                <div className="text-green-500 text-xs flex flex-row items-center">
                     <LuDot size={32}/>
-                    <span>All Service is Healthy</span>
+                    <span>All service seems happy</span>
                 </div>
-                <div className="text-xs hidden md:block" style={{ fontFamily: "Geist Sans", fontSize: "10px" }}>
-                    <span>Copyright © 2024 <b>Condensatore</b> contributor.</span>
+                <div className="text-xs hidden md:flex flex-col items-center" style={{ fontFamily: "Geist Sans", fontSize: "10px" }}>
+                    <span>Copyright © 2024 <Link className="text-blue-500" href="https://github.com/mathca-labs/condensatore.git" target="_blank">Condensatore</Link> contributor and released under <Link className="text-blue-500" href="https://mit-license.org" target="_blank">MIT License</Link>.</span>
                 </div>
                 <div className="w-fit">
                     <ThemeSwitcherComponents/>

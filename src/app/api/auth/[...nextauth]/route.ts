@@ -11,9 +11,6 @@
  * If not, see <https://mit-license.org/>.
  * 
 */
-import { drizzle } from 'drizzle-orm/node-postgres';
+import { handlers } from '@app/auth';
 
-const db = drizzle(process.env.DATABASE_URL!);
-
-export default db;
-
+export const { GET, POST } = handlers; 

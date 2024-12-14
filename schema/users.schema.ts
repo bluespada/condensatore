@@ -14,16 +14,15 @@
 
 import { pgTable, varchar, integer } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
-import { AuthSchema } from '@schema/index';
+import { Auth } from '@schema/index';
 
-const Users = pgTable("res_users", {
+export const schema = pgTable("res_users", {
     id: integer().primaryKey().generatedAlwaysAsIdentity(),
     name: varchar().notNull(),
     picture: varchar(),
 });
 
-export default Users;
 
-export const authMany2oneRelations = relations(Users, ({ many }) => ({
-    Auth: many(AuthSchema.default)
+export const authMany2oneRelations = relations(schema, ({ many }) => ({
+    Auth: many(Auth.schema)
 }));

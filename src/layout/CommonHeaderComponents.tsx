@@ -24,7 +24,7 @@ import { useCookies } from 'next-client-cookies';
 export default function CommonHeaderComponent() : React.ReactNode {
     const cookies = useCookies();
     return (<>
-        <nav className="w-full flex flex-row justify-between items-center px-8 py-1.5">
+        <nav className="w-full flex flex-row justify-between items-center px-2.5 md:px-8 py-1.5">
             <div className="">
                 <Link href="/" className="flex flex-row items-center gap-2">
                     <Image 

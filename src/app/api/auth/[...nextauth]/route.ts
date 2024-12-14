@@ -11,8 +11,6 @@
  * If not, see <https://mit-license.org/>.
  * 
 */
+import { handlers } from '@app/auth';
 
-// contains auth.schema.ts
-export * as Users from '@schema/users.schema';
-export * as Auth from '@schema/auth.schema';
-
+export const { GET, POST } = handlers; 

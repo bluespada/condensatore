@@ -11,8 +11,9 @@
  * If not, see <https://mit-license.org/>.
  * 
 */
+import { drizzle } from 'drizzle-orm/node-postgres';
 
-// contains auth.schema.ts
-export * as Users from '@schema/users.schema';
-export * as Auth from '@schema/auth.schema';
+const db = drizzle(process.env.DATABASE_URL!);
+
+export default db;
 

@@ -31,3 +31,7 @@
     "Helvetica Neue",
     sans-serif;
 }
+
+input {
+  @apply bg-transparent hover:border-none hover:outline-none focus:border-none focus:outline-none;
+}

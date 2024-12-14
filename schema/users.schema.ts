@@ -20,8 +20,10 @@ export const schema = pgTable("res_users", {
     id: integer().primaryKey().generatedAlwaysAsIdentity(),
     name: varchar().notNull(),
     picture: varchar(),
+    email: varchar().notNull().unique(),
 });
 
+export default schema;
 
 export const authMany2oneRelations = relations(schema, ({ many }) => ({
     Auth: many(Auth.schema)

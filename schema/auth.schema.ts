@@ -21,7 +21,7 @@ export const schema = pgTable("res_auth", {
     email: varchar().notNull().unique(),
     password: varchar().notNull(),
     userId: integer("user_id").references(() => Users.schema.id),
-    tempRole: varchar("temp_role"),
+    tempRole: varchar("temp_role").notNull(),
 });
 
 export default schema;

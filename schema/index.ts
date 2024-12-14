@@ -13,6 +13,6 @@
 */
 
 // contains auth.schema.ts
-export * as UsersSchema from '@schema/users.schema';
-export * as AuthSchema from '@schema/auth.schema';
+export * as Users from '@schema/users.schema';
+export * as Auth from '@schema/auth.schema';
 

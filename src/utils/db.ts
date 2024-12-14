@@ -11,17 +11,10 @@
  * If not, see <https://mit-license.org/>.
  * 
 */
-import NextAuth, { NextAuthConfig } from 'next-auth';
-import { Provider } from 'next-auth/providers';
+"use server";
+import { drizzle } from 'drizzle-orm/node-postgres';
 
-// set authentication provider here
-export const providers : Provider[] = [
+const db = drizzle(process.env.DATABASE_URL!);
 
-];
+export default db;
 
-// setup next-auth configuration here
-export const configuration : NextAuthConfig = {
-    providers,
-}
-
-export const { signIn, signOut, auth, handlers } = NextAuth(configuration);

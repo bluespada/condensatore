@@ -24,7 +24,8 @@
         ],
         "baseUrl": ".",
         "paths": {
-            "@app/*": ["app/*"]
+            "@app/*": ["app/*"],
+            "@shd/*": ["shared/*"]
         }
     },
     "exclude": [

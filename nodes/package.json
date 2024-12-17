@@ -1,6 +1,6 @@
 {
     "name": "nodes",
     "scripts": {
-        "dev": "nodemon -w cmd -w proto -e go,proto --exec \"go run cmd/*.go\" --signal SIGTERM"
+        "dev": "nodemon -w cmd -w pkg -e go,proto --exec \"go run cmd/*.go\" --signal SIGTERM"
     }
 }

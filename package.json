@@ -19,7 +19,12 @@
     ],
     "license": "MIT",
     "dependencies": {
+        "@fontsource/geist-sans": "^5.1.0",
+        "@fontsource/plus-jakarta-sans": "^5.1.0",
         "@solidjs/router": "^0.15.2",
+        "@tailwindcss/aspect-ratio": "^0.4.2",
+        "@tailwindcss/container-queries": "^0.1.1",
+        "@tailwindcss/typography": "^0.5.15",
         "autoprefixer": "^10.4.20",
         "daisyui": "^4.12.22",
         "postcss": "^8.4.49",

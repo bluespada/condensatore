@@ -10,6 +10,6 @@ export const router : RouteDefinition[] = [
     },
     {
         path: "/signin",
-        component: lazy(() => import("@app/src/app/signin/signin"))
+        component: lazy(() => import("@app/src/app/signin/SignInViews"))
     }
 ];

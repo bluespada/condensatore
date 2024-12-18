@@ -9,9 +9,9 @@ import (
 
 
 func Exec(){
-    
+
     server := gin.Default()
-    
+
     api := server.Group("/api")
     {
         v1 := api.Group("/v1")
@@ -43,6 +43,7 @@ func Exec(){
                     },
                 })
             })
+
         }
     }
 

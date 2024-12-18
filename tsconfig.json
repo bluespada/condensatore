@@ -8,19 +8,19 @@
         ],
         "allowJs": true,
         "skipLibCheck": true,
-        "strict": true,
+        "strict": false,
         "noEmit": true,
         "incremental": true,
         "module": "esnext",
         "esModuleInterop": true,
         "moduleResolution": "node",
         "resolveJsonModule": true,
-        "isolatedModules": true,
         "jsx": "preserve",
+        "jsxImportSource": "solid-js",
+        "jsxFactory": "h",
+        "jsxFragmentFactory": "Fragment",
+        "isolatedModules": true,
         "plugins": [
-            {
-                "name": "next"
-            }
         ],
         "baseUrl": ".",
         "paths": {

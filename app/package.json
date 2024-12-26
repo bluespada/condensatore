@@ -1,7 +1,0 @@
-{
-    "name": "app",
-    "type": "module",
-    "scripts": {
-        "dev": "vite"
-    }
-}

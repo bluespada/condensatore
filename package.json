@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "description": "Condensatore is a open source Paas",
     "packageManager": "^bun@1.1.38",
-    "workspaces": ["app", "nodes"],
+    "workspaces": [],
     "turbo": {
         "root": "."
     },
@@ -19,17 +19,20 @@
     ],
     "license": "MIT",
     "dependencies": {
-        "@solidjs/router": "^0.15.2",
-        "solid-js": "^1.9.3",
-        "turbo": "^2.3.3",
-        "vite": "^6.0.3",
-        "vite-plugin-solid": "^2.11.0"
+        "autoprefixer": "^10.4.20",
+        "daisyui": "^4.12.22",
+        "next": "^15.1.2",
+        "postcss": "^8.4.49",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "tailwindcss": "^3.4.17"
     },
     "devDependencies": {
         "@types/nodemon": "^1.19.6",
+        "@types/react": "^19.0.2",
+        "@types/react-dom": "^19.0.2",
         "bun-types": "^1.1.38",
-        "nodemon": "^3.1.9",
-        "solid-devtools": "^0.31.5",
+        "turbo": "^2.3.3",
         "typescript": "^5.7.2"
     }
 }

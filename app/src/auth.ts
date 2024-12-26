@@ -1,11 +1,30 @@
 import NextAuth, { NextAuthConfig } from 'next-auth';
 import { Provider } from 'next-auth/providers';
+import CredentialsProviders from 'next-auth/providers/credentials';
 
 /**
  * Array of authentication providers.
  * Currently empty, but can be populated with various providers (e.g., Google, GitHub).
  */
-const providers: Provider[] = [];
+const providers: Provider[] = [
+    CredentialsProviders({
+        name: "Credentials",
+        credentials: {
+            login: { type: "text", required: true },
+            password: { type: "password", required: true }
+        },
+        async authorize(credentials, request) {
+            const res = await fetch("/api/auth/sigin_validation", {
+                method: "POST",
+                body: JSON.stringify(credentials)
+            });
+            if(res.ok){
+                console.log(res.ok);
+            }
+            return null;
+        },
+    })
+];
 
 /**
  * Configuration object for NextAuth.
@@ -14,6 +33,9 @@ const providers: Provider[] = [];
  */
 const config: NextAuthConfig = {
     providers,
+    pages: {
+        "signIn": "/signin",
+    }
 };
 
 /**

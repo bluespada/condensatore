@@ -159,7 +159,7 @@ test/
 build/
 static/
 .drizzle/
-prisma/client/
+app/prisma/client/
 
 
 # Added by cargo

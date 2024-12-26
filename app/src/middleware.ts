@@ -2,12 +2,18 @@
 import { NextResponse, MiddlewareConfig } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+
 /**
  * Basic next js middleware that simply forwards the request.
  * @param {NextRequest} req - The request to forward.
  * @returns {Promise<NextResponse>} - The forwarded response.
  */
 export async function middleware(req: NextRequest) : Promise<NextResponse> {
+    const res = await fetch(req.nextUrl.origin + "/api/auth/sigin_validation", {
+        method: "POST",
+        body: JSON.stringify({})
+    });
+    console.log(await res.json());
     return NextResponse.next();
 }
 
@@ -23,6 +29,6 @@ export async function middleware(req: NextRequest) : Promise<NextResponse> {
  */
 export const config: MiddlewareConfig = {
     matcher: [
-        '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
+        '/((?!api|signin|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
     ]
 }

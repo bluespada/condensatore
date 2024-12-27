@@ -1,0 +1,10 @@
+model Projects {
+    ID Int @default(autoincrement()) @id
+    projectId String @unique @default(uuid())
+    // General information
+    name String
+    description String?
+    // Relational Information
+    userId Int
+    user Users @relation(fields: [userId], references: [ID], onDelete: Cascade)
+}

@@ -3,6 +3,7 @@ import { Provider } from 'next-auth/providers';
 import config from '@/auth.config';
 import CredentialsProviders from 'next-auth/providers/credentials';
 import client from '@/lib/db';
+import { compare } from 'bcrypt';
 
 /**
  * Array of authentication providers.
@@ -22,6 +23,10 @@ const providers: Provider[] = [
                 }
             });
             if(auth){
+                const isValid = await compare(credentials?.password as string, auth.password);
+                if(!isValid){
+                    return null;
+                }
                 return {
                     id: auth.ID.toString(),
                     email: auth.email
@@ -41,6 +46,10 @@ const providers: Provider[] = [
  */
 export const { handlers, auth, signIn, signOut } = NextAuth({
     providers,
+    pages: {
+        signIn: "/signin",
+        signOut: "/signout",
+    },    
     callbacks: {
         async session({ session, user, token }){
             const auth = await client.auth.findFirst({
@@ -51,7 +60,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                     users: true,
                 }
             });
-            session.user.id = auth.ID;
+            session.user.id = auth.users.ID.toString();
             session.user.email = auth.email;
             session.user.role = auth.users.role;
             session.user.name = auth.users.name;

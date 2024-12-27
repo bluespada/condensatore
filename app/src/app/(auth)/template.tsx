@@ -29,7 +29,7 @@ export default function AuthTemplate({ children }){
                 </div>
             </div>
         </nav>
-        <main className="w-full h-full min-h-screen">
+        <main className="w-full h-full">
             { children }
         </main>
 

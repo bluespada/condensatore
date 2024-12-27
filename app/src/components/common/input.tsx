@@ -65,7 +65,7 @@ export function Input(props: InputProps) {
         >
             <label htmlFor={props.name}>{props.label}</label>
             <div
-                className={`rounded-lg border border-gray-300 px-2 py-1.5 flex flex-col gap-2`}
+                className={`rounded-lg border dark:border-gray-600 border-gray-300 px-2 py-1.5 flex flex-col gap-2`}
             >
                 <input className={`rounded-lg bg-transparent w-full hover:border-none hover:outline-none focus:outline-none focus:border-none`} {...props} />
             </div>

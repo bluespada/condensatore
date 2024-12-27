@@ -2,29 +2,35 @@
 import React from 'react';
 import { Input } from '@/components/common/input';
 import { signIn } from 'next-auth/react';
+import { useSearchParams } from 'next/navigation';
 
 
 interface AuthSignInFormComponentProps {
     action?: (unkown) => unknown;
 }
 
+const error_code = {
+    "credentials": "Invalid login or password",
+}
+
 export default function AuthSignInFormComponent(props: AuthSignInFormComponentProps) {
-    
+    const searchParams = useSearchParams();
     const [login, setLogin] = React.useState("");
     const [password, setPassword] = React.useState("");
 
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const res = await signIn("credentials", {
+        await signIn("credentials", {
             login,
             password,
-        }, { redirect: false });
-        console.log(res);
+            redirect: true,
+            redirectTo: "/"
+        });
     };
 
     return (
         <>
-            <div className="w-full h-full min-h-screen flex flex-col items-center">
+            <div className="w-full h-full flex flex-col items-center">
                 <div
                     className="w-full md:w-1/3 flex flex-col pt-12 pb-8"
                 >
@@ -53,6 +59,16 @@ export default function AuthSignInFormComponent(props: AuthSignInFormComponentPr
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
+                    <div
+                        className={searchParams.get("error") ? `gap-3 flex flex-col border border-red-500 rounded-md p-2 bg-red-500/20 text-red-500` : 'hidden'}
+                    >
+                        <span className="text-base font-semibold">
+                            Error : {searchParams.get("error")}
+                        </span>
+                        <span>
+                            { error_code[searchParams.get("code")] }
+                        </span>
+                    </div>
                     <button className="btn btn-primary">
                         Login
                     </button>

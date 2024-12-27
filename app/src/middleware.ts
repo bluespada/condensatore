@@ -1,6 +1,7 @@
 /** this is a basic next js middleware */
 import { NextResponse, MiddlewareConfig } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { auth } from '@/auth';
 
 
 /**
@@ -9,11 +10,8 @@ import type { NextRequest } from 'next/server';
  * @returns {Promise<NextResponse>} - The forwarded response.
  */
 export async function middleware(req: NextRequest) : Promise<NextResponse> {
-    const res = await fetch(req.nextUrl.origin + "/api/auth/sigin_validation", {
-        method: "POST",
-        body: JSON.stringify({})
-    });
-    console.log(await res.json());
+    const session = await auth();
+    if(!session?.user) return NextResponse.redirect(new URL('/signin', req.url));
     return NextResponse.next();
 }
 

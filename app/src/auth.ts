@@ -14,12 +14,13 @@ const providers: Provider[] = [
             password: { type: "password", required: true }
         },
         async authorize(credentials, req) {
-            const res = await fetch(req.url + "/api/auth/sigin_validation", {
+            const origin = new URL(req.url).origin;
+            const res = await fetch(origin + "/api/custom/auth/validation", {
                 method: "POST",
                 body: JSON.stringify(credentials)
             });
             if(res.ok){
-                console.log(res.ok);
+                console.log(res.ok, await res.text());
             }
             return null;
         },
@@ -33,6 +34,7 @@ const providers: Provider[] = [
  */
 const config: NextAuthConfig = {
     providers,
+    secret: process.env.NEXTAUTH_SECRET || "EE5AD6A7AABDF5E8CA13A874C5A9CAEA396964DCD77C77CE116FF4DBA6",
     pages: {
         "signIn": "/signin",
     }

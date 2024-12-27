@@ -1,6 +1,9 @@
 import { Hono, Context } from 'hono';
 import { handle } from 'hono/vercel';
 
+/** Import all handlers */
+import auth_api from './auth';
+
 /**
  * Sets up the handlers for the Hono application.
  * This function defines the routing for the application and handles various HTTP methods.
@@ -12,13 +15,10 @@ export default function handlers(app: Hono) {
     /**
      * Define additional routing here.
      */
-
-    // Root route handler
-    app.get("/", (ctx: Context) => {
-        return ctx.json({
-            error: false,
-        });
+    app.get("/", async (c: Context) => {
+        return c.json({ error: false, messages: "Hello" });
     });
+    app.route('/custom/auth', auth_api);
 
     // Create a single handler for all HTTP methods
     const allMethodsHandler = handle(app);

@@ -1,6 +1,7 @@
 import React from 'react';
 import '@fontsource/geist-sans';
 import '@assets/main.scss';
+import { SessionProvider } from 'next-auth/react';
 import { cookies } from 'next/headers';
 import { CookiesProvider } from 'next-client-cookies/server';
 
@@ -15,7 +16,9 @@ export default async function AppLayout({ children }){
             </head>
             <body>
                 <CookiesProvider>
-                    { children }
+                    <SessionProvider>
+                        { children }
+                    </SessionProvider>
                 </CookiesProvider>
             </body>
         </html>

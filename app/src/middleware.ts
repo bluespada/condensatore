@@ -1,16 +1,26 @@
 /** this is a basic next js middleware */
 import { NextResponse, MiddlewareConfig } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { auth } from '@/auth';
+import { cookies } from 'next/headers';
+
 
 /**
  * Basic next js middleware that simply forwards the request.
  * @param {NextRequest} req - The request to forward.
  * @returns {Promise<NextResponse>} - The forwarded response.
  */
-export async function middleware(req: NextRequest) : Promise<NextResponse> {
-    const session = await auth();
-    if(!session?.user) return NextResponse.redirect(new URL('/signin', req.url));
+export async function middleware(req: NextRequest) {
+    const c = await cookies();
+    const res = await fetch(req.nextUrl.origin + "/api/auth/session", {
+        method: "GET",
+        headers: {
+            cookie: c.toString(),
+        },
+    });
+    const session = await res.json();
+    if (!session?.user) {
+        return NextResponse.redirect(new URL("/signin", req.nextUrl.origin));
+    }
     return NextResponse.next();
 }
 

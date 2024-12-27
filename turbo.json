@@ -6,6 +6,14 @@
         "**/.env.*local"
     ],
     "tasks": {
+        "app:init": {
+            "cache": false,
+            "env": [
+                "DATABASE_URL",
+                "CONDENSATORE_USER",
+                "CONDENSATORE_PASS"
+            ]
+        },
         "db:migrate": {
             "cache": false,
             "env": [
@@ -34,7 +42,9 @@
             "cache": false,
             "outputs": [],
             "env": [
-                "DATABASE_URL"
+                "DATABASE_URL",
+                "NEXTAUTH_URL",
+                "NEXTAUTH_SECRET"
             ],
             "persistent": true
         },

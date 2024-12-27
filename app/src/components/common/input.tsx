@@ -29,7 +29,9 @@ export interface InputSchema {
  * @property {string} name - The name of the input.
  * @property {React.InputHTMLAttributes<HTMLInputElement>} - The input element attributes.
  */
-export type InputProps = InputSchema & React.InputHTMLAttributes<HTMLInputElement>;
+export type InputProps = InputSchema & React.InputHTMLAttributes<HTMLInputElement> & {
+    label?: string
+};
 
 /**
  * A basic input component with validation using zod.
@@ -58,6 +60,15 @@ export function Input(props: InputProps) {
     };
 
     return (<>
-        <input/>
+        <div
+            className="flex flex-col gap-1"
+        >
+            <label htmlFor={props.name}>{props.label}</label>
+            <div
+                className={`rounded-lg border border-gray-300 px-2 py-1.5 flex flex-col gap-2`}
+            >
+                <input className={`rounded-lg bg-transparent w-full hover:border-none hover:outline-none focus:outline-none focus:border-none`} {...props} />
+            </div>
+        </div>
     </>);
 }

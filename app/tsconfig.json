@@ -25,12 +25,6 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["./src/*"],
-            "@app/*": ["./src/app/*"],
-            "@assets/*": ["./src/assets/*"],
-            "@components/*": ["./src/components/*"],
-            "@actions/*": ["./src/actions/*"],
-            "@lib/*": ["./src/lib/*"],
-            "@server/*": ["./server/*"],
         }
     },
     "include": [

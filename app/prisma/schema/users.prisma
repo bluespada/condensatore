@@ -2,4 +2,8 @@ model Users {
     ID Int @default(autoincrement()) @id
     authId Int @unique
     auth Auth @relation(fields: [authId], references: [ID], onDelete: Cascade)
+    name String?
+    email String?
+    image String?
+    role String[]
 }

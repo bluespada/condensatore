@@ -1,6 +1,8 @@
-import NextAuth, { NextAuthConfig } from 'next-auth';
+import NextAuth from 'next-auth';
 import { Provider } from 'next-auth/providers';
+import config from '@/auth.config';
 import CredentialsProviders from 'next-auth/providers/credentials';
+import client from '@/lib/db';
 
 /**
  * Array of authentication providers.
@@ -14,32 +16,21 @@ const providers: Provider[] = [
             password: { type: "password", required: true }
         },
         async authorize(credentials, req) {
-            const origin = new URL(req.url).origin;
-            const res = await fetch(origin + "/api/custom/auth/validation", {
-                method: "POST",
-                body: JSON.stringify(credentials)
+            const auth = await client.auth.findFirst({
+                where: {
+                    email: credentials?.login,
+                }
             });
-
-            if(res.ok){
-                console.log(res.ok, await res.text());
+            if(auth){
+                return {
+                    id: auth.ID.toString(),
+                    email: auth.email
+                }
             }
             return null;
         },
-    })
+    }),
 ];
-
-/**
- * Configuration object for NextAuth.
- * This object defines the authentication providers and other settings.
- * @type {NextAuthConfig}
- */
-const config: NextAuthConfig = {
-    providers,
-    secret: process.env.NEXTAUTH_SECRET || "EE5AD6A7AABDF5E8CA13A874C5A9CAEA396964DCD77C77CE116FF4DBA6",
-    pages: {
-        "signIn": "/signin",
-    }
-};
 
 /**
  * Exported handlers and authentication functions from NextAuth.
@@ -48,4 +39,25 @@ const config: NextAuthConfig = {
  * - signIn: Function to initiate the sign-in process.
  * - signOut: Function to initiate the sign-out process.
  */
-export const { handlers, auth, signIn, signOut } = NextAuth(config);
+export const { handlers, auth, signIn, signOut } = NextAuth({
+    providers,
+    callbacks: {
+        async session({ session, user, token }){
+            const auth = await client.auth.findFirst({
+                where: {
+                    email: session?.user?.email,
+                },
+                include: {
+                    users: true,
+                }
+            });
+            session.user.id = auth.ID;
+            session.user.email = auth.email;
+            session.user.role = auth.users.role;
+            session.user.name = auth.users.name;
+            session.user.image = auth.users.image;
+            return session;
+        }
+    },
+    ...config,
+});

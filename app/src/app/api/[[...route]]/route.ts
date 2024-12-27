@@ -5,7 +5,7 @@ import ServerHandler from '@server/index';
  * Runtime environment for the API routes.
  * This specifies that the routes will run in an edge environment.
  */
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 
 // Create a new Hono application with a base path of '/api'
 const app = new Hono().basePath('/api');

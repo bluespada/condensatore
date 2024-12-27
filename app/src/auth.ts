@@ -19,6 +19,7 @@ const providers: Provider[] = [
                 method: "POST",
                 body: JSON.stringify(credentials)
             });
+
             if(res.ok){
                 console.log(res.ok, await res.text());
             }

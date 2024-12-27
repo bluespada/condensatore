@@ -3,14 +3,12 @@ import { NextResponse, MiddlewareConfig } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { auth } from '@/auth';
 
-
 /**
  * Basic next js middleware that simply forwards the request.
  * @param {NextRequest} req - The request to forward.
  * @returns {Promise<NextResponse>} - The forwarded response.
  */
 export async function middleware(req: NextRequest) : Promise<NextResponse> {
-    console.log(process.env.DATABASE_URL);
     const session = await auth();
     if(!session?.user) return NextResponse.redirect(new URL('/signin', req.url));
     return NextResponse.next();

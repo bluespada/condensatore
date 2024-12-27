@@ -18,6 +18,12 @@
                 "DATABASE_URL"
             ]
         },
+        "db:reset": {
+            "cache": false,
+            "env": [
+                "DATABASE_URL"
+            ]
+        },
         "db:studio": {
             "cache": false,
             "env": [

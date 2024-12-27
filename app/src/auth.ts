@@ -60,7 +60,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                     users: true,
                 }
             });
-            session.user.id = auth.ID.toString();
+            session.user.id = auth.users.ID.toString();
             session.user.email = auth.email;
             session.user.role = auth.users.role;
             session.user.name = auth.users.name;

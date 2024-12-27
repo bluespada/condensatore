@@ -21,6 +21,7 @@ export async function middleware(req: NextRequest) {
     if (!session?.user) {
         return NextResponse.redirect(new URL("/signin", req.nextUrl.origin));
     }
+    if(req.nextUrl.pathname == "/projects") return NextResponse.redirect(new URL("/", req.nextUrl.origin));
     return NextResponse.next();
 }
 

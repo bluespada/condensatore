@@ -1,0 +1,14 @@
+{
+    "name": "condensatore",
+    "version": "0.0.1",
+    "description": "Condensatore is a open source Paas",
+    "scripts": {
+        "app:init": "bun run scripts/init.ts",
+        "dev": "bun run --bun next dev -p 9000",
+        "start": "bun run --bun next start -p 9000",
+        "db:migrate": "prisma migrate dev",
+        "db:reset": "prisma migrate reset --force",
+        "db:generate": "prisma generate",
+        "db:studio": "prisma studio"
+    }
+}

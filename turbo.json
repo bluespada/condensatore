@@ -1,9 +1,51 @@
 {
     "$schema": "https://turbo.build/schema.json",
+    "globalDependencies": [
+        ".env",
+        ".env.local",
+        "**/.env.*local"
+    ],
     "tasks": {
+        "app:init": {
+            "cache": false,
+            "env": [
+                "DATABASE_URL",
+                "CONDENSATORE_USER",
+                "CONDENSATORE_PASS"
+            ]
+        },
+        "db:migrate": {
+            "cache": false,
+            "env": [
+                "DATABASE_URL"
+            ]
+        },
+        "db:generate": {
+            "cache": false,
+            "env": [
+                "DATABASE_URL"
+            ]
+        },
+        "db:reset": {
+            "cache": false,
+            "env": [
+                "DATABASE_URL"
+            ]
+        },
+        "db:studio": {
+            "cache": false,
+            "env": [
+                "DATABASE_URL"
+            ]
+        },
         "dev": {
             "cache": false,
             "outputs": [],
+            "env": [
+                "DATABASE_URL",
+                "NEXTAUTH_URL",
+                "NEXTAUTH_SECRET"
+            ],
             "persistent": true
         },
         "build": {

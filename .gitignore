@@ -159,6 +159,8 @@ test/
 build/
 static/
 .drizzle/
+app/prisma/client/
+app/prisma/migrations/
 
 
 # Added by cargo

@@ -30,6 +30,7 @@
             "@components/*": ["./src/components/*"],
             "@actions/*": ["./src/actions/*"],
             "@lib/*": ["./src/lib/*"],
+            "@server/*": ["./server/*"],
         }
     },
     "include": [

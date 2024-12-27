@@ -13,8 +13,8 @@ const providers: Provider[] = [
             login: { type: "text", required: true },
             password: { type: "password", required: true }
         },
-        async authorize(credentials, request) {
-            const res = await fetch("/api/auth/sigin_validation", {
+        async authorize(credentials, req) {
+            const res = await fetch(req.url + "/api/auth/sigin_validation", {
                 method: "POST",
                 body: JSON.stringify(credentials)
             });

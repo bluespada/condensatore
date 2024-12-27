@@ -8,7 +8,13 @@
         "root": "."
     },
     "scripts": {
-        "dev": "turbo dev"
+        "dev": "dotenv -- turbo run dev",
+        "db:generate": "dotenv -- turbo run db:generate",
+        "db:migrate": "dotenv -- turbo run db:migrate",
+        "db:studio": "dotenv -- turbo run db:studio",
+        "build": "dotenv -- turbo run build",
+        "start": "dotenv -- turbo run start",
+        "clean": "dotenv -- turbo run clean"
     },
     "repository": {
         "type": "git",
@@ -42,6 +48,8 @@
         "@types/react": "^19.0.2",
         "@types/react-dom": "^19.0.2",
         "bun-types": "^1.1.38",
+        "dotenv": "^16.4.7",
+        "dotenv-cli": "^8.0.0",
         "prisma": "^6.1.0",
         "sass": "^1.83.0",
         "turbo": "^2.3.3",

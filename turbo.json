@@ -1,9 +1,35 @@
 {
     "$schema": "https://turbo.build/schema.json",
+    "globalDependencies": [
+        ".env",
+        ".env.local",
+        "**/.env.*local"
+    ],
     "tasks": {
+        "db:migrate": {
+            "cache": false,
+            "env": [
+                "DATABASE_URL"
+            ]
+        },
+        "db:generate": {
+            "cache": false,
+            "env": [
+                "DATABASE_URL"
+            ]
+        },
+        "db:studio": {
+            "cache": false,
+            "env": [
+                "DATABASE_URL"
+            ]
+        },
         "dev": {
             "cache": false,
             "outputs": [],
+            "env": [
+                "DATABASE_URL"
+            ],
             "persistent": true
         },
         "build": {

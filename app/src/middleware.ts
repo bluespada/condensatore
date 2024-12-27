@@ -10,6 +10,7 @@ import { auth } from '@/auth';
  * @returns {Promise<NextResponse>} - The forwarded response.
  */
 export async function middleware(req: NextRequest) : Promise<NextResponse> {
+    console.log(process.env.DATABASE_URL);
     const session = await auth();
     if(!session?.user) return NextResponse.redirect(new URL('/signin', req.url));
     return NextResponse.next();

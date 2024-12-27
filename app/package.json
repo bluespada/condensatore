@@ -3,6 +3,9 @@
     "version": "0.0.1",
     "description": "Condensatore is a open source Paas",
     "scripts": {
-        "dev": "next -p 9000"
+        "dev": "next -p 9000",
+        "db:migrate": "prisma migrate dev",
+        "db:generate": "prisma generate",
+        "db:studio": "prisma studio"
     }
 }

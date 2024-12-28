@@ -19,6 +19,7 @@ import {
 } from 'react-icons/si';
 import { signOut } from 'next-auth/react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 
 export default function SidebarComponent(){
@@ -116,9 +117,20 @@ export default function SidebarComponent(){
 export function SidebarItemMenu({
     link, name, icons
 }: { link: string, name?: string, icons: React.ReactNode }) {
+    const [active, setActive] = React.useState(false);
+    const pathname = usePathname();
+
+    React.useEffect(() => {
+        // checking if link is only / will use == if not using startWith
+        if (link === pathname || pathname.startsWith(link)) {
+            setActive(true);
+            return;
+        }
+        setActive(false);
+    }, []);
     return (<>
         <Link 
-            className="flex flex-row items-center py-1.5 px-4 hover:px-[0.5rem] gap-2.5 hover:border-l-[0.5rem] hover:border-primary w-full hover:outline-none focus:outline-none text-gray-600 dark:text-gray-300/80 hover:text-primary text-sm"
+            className={`flex flex-row items-center py-1.5 px-4 ${ active ? 'border-l-[0.5rem] border-primary px-[0.5rem]' : '' } hover:px-[0.5rem] gap-2.5 hover:border-l-[0.5rem] hover:border-primary w-full hover:outline-none focus:outline-none text-gray-600 dark:text-gray-300/80 hover:text-primary text-sm`}
             href={link}
         >
             {icons}

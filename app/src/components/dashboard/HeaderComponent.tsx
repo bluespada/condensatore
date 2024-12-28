@@ -7,10 +7,14 @@ import {
 } from 'react-icons/lu';
 import { ActionSwitch } from '@/actions/theme';
 import { useCookies } from 'next-client-cookies';
+import { usePathname } from 'next/navigation';
+import { parsePathnameToBreadcrumbs, capitalFirst } from '@/lib/function';
 
 export default function HeaderComponent(){
     const c = useCookies();
     const theme = c.get("theme") || "light";
+    const pathname = usePathname();
+    const breadcrumbs = parsePathnameToBreadcrumbs(pathname);
     return (<>
         <nav className="w-full pl-52">
             <div className="w-full flex flex-row items-center justify-between border-b border-gray-400/20 px-12 py-1.5">
@@ -18,7 +22,13 @@ export default function HeaderComponent(){
                     <div className="breadcrumbs text-sm">
                         <ul>
                             <li>Dashboard</li>
-                            <li>Projects</li>
+                            {
+                                breadcrumbs.map((i, k) => (<li 
+                                    key={k}
+                                >
+                                    { capitalFirst(i) }
+                                </li>))
+                            }
                         </ul>
                     </div>
                 </div>

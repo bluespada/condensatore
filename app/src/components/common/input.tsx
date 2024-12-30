@@ -63,9 +63,14 @@ export function Input(props: InputProps) {
         <div
             className="flex flex-col gap-1"
         >
-            <label htmlFor={props.name}>{props.label}</label>
+            <label htmlFor={props.name}>
+                {props.label}
+                {
+                    props.required ? (<span className="text-red-500">*</span>) : null
+                }
+            </label>
             <div
-                className={`rounded-lg border dark:border-gray-600 border-gray-300 px-2 py-1.5 flex flex-col gap-2`}
+                className={`rounded-lg border dark:border-gray-400/20 border-gray-300 px-2 py-1.5 flex flex-col gap-2`}
             >
                 <input className={`rounded-lg bg-transparent w-full hover:border-none hover:outline-none focus:outline-none focus:border-none`} {...props} />
             </div>
@@ -114,9 +119,14 @@ export function TextArea(props: TextAreaProps){
         <div
             className="flex flex-col gap-1"
         >
-            <label htmlFor={props.name}>{props.label}</label>
+            <label htmlFor={props.name}>
+                {props.label}
+                {
+                    props.required ? (<span className="text-red-500">*</span>) : null
+                }
+            </label>
             <div
-                className={`rounded-lg border dark:border-gray-600 border-gray-300 px-2 py-1.5 flex flex-col gap-2`}
+                className={`rounded-lg border dark:border-gray-400/20 border-gray-300 px-2 py-1.5 flex flex-col gap-2`}
             >
                 <textarea className={`rounded-lg bg-transparent w-full hover:border-none hover:outline-none focus:outline-none focus:border-none`} {...props} />
             </div>
@@ -124,14 +134,52 @@ export function TextArea(props: TextAreaProps){
     </>)
 }
 
+/**
+ * SelectionAttribute is a type for the selection component.
+ * @typedef {Object} SelectionAttribute
+ * @property {String} label - The label of the selection.
+ * @property {String|React.ReactNode} prefix - The prefix of the selection.
+ * @property {T[]} options - The options of the selection.
+ * @property {String} name - The name of the selection.
+ * @property {String} placeholder - The placeholder of the selection.
+ */
 export interface SelectionAttribute<T> {
     label?: string
-    prefix?: React.ReactNode
+    prefix?: string | React.ReactNode
     options: T[]
+    name?: string
+    placeholder?: string
 };
 
-export type SelectionProps<T> = InputSchema & SelectionAttribute<T> & React.InputHTMLAttributes<HTMLInputElement>;
+/**
+ * SelectionProps is a type properties for Selection Component.
+ * @typedef {Object} SelectionProps
+ * @property {ZodSchema} schema - The zod schema to validate the selection value.
+ * @property {function} issueCallback - The callback function to call when the value is invalid.
+ * @property {Object} - The selection element attributes.
+ */
+export type SelectionProps<T> = InputSchema & SelectionAttribute<T>;
 
+/**
+ * Selection Component is a Selection Component with features to validate the options with zodschema.
+ * @example
+ * <Selection
+ *      label="selection"
+ *      name="selection"
+ *      options={[
+ *          {
+ *              key: 0,
+ *              value: "Option 1"
+ *          },
+ *          {
+ *              key: 1,
+ *              value: "Option 2"
+ *          }
+ *      ]}
+ * />
+ * @params {SelectionProps<T>} props - The props for the selection component.
+ * @returns {JSX.Element} - Selection Element
+ */
 export function Selection<T>(props: SelectionProps<T>){
     return (<>
         <div
@@ -139,14 +187,14 @@ export function Selection<T>(props: SelectionProps<T>){
         >
             <label htmlFor={props.name}>{props.label}</label>
             <div
-                className={`flex flex-row items-center cursor-pointer gap-2 rounded-lg border dark:border-gray-600 border-gray-300 px-2 py-1.5`}
+                className={`flex flex-row items-center cursor-pointer gap-2 rounded-lg border dark:border-gray-400/20 border-gray-300 px-2 py-1.5`}
             >
                 {props.prefix}
                 <input
                     className={`rounded-lg bg-transparent cursor-pointer w-full hover:border-none hover:outline-none focus:outline-none focus:border-none`} 
                     readOnly
                     defaultValue={""}
-                    {...props} 
+                    placeholder={props.placeholder}
                 />
 
             </div>

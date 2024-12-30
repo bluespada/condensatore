@@ -12,9 +12,9 @@ module.exports = {
             {
                 light: {
                     primary: "#000000", // Black primary color
-                    "base-100": "#FFFFFF", // White base color
+                    "base-100": "#F5F5F5", // White base color
                     "base-content": "#1A1A1A", // Dark text color
-                    "base-200": "#F5F5F5", // Light gray
+                    "base-200": "#FFFFFF", // Light gray
                     "base-300": "#E5E5E5", // Darker light gray
                     secondary: "#F0F0F0", // Light gray
                     accent: "#3B82F6", // Blue accent

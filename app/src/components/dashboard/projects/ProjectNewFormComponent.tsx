@@ -6,7 +6,7 @@ import {
     Selection,
 } from '@/components/common/input';
 import {
-    BiGitRepoForked
+    BiLogoGithub
 } from 'react-icons/bi';
 
 export interface ProjectNewFormComponentProps {
@@ -17,9 +17,9 @@ export default function ProjectNewFormComponent(){
         <div className="w-full h-full pt-12">
             <div className="card bg-base-200 w-full rounded-md border border-gray-300 dark:border-gray-400/15">
                 <div className="card-body p-0 flex flex-col">
-                    <div className="flex flex-col gap-1.5 border-b border-gray-300 dark:border-gray-400/15 px-3 py-1.5">
-                        <span className="text-lg">
-                            Create a new project
+                    <div className="flex flex-col gap-1.5 border-b border-gray-300 dark:border-gray-400/15 px-6 py-2.5">
+                        <span className="text-2xl">
+                            Let's build something new
                         </span>
                         <div className="flex flex-col">
                             <span className="text-sm text-gray-500 dark:border-gray-300">
@@ -38,13 +38,11 @@ export default function ProjectNewFormComponent(){
                         <Input
                             label="Project Name"
                             placeholder="Project Name"
-                        />
-                        <TextArea
-                            label="Project Description"
+                            required
                         />
                         <Selection
                             label="Select Repositories"
-                            prefix={(<BiGitRepoForked size={20}/>)}
+                            prefix={(<BiLogoGithub size={20}/>)}
                             options={[
                                 {
                                     key: 0,

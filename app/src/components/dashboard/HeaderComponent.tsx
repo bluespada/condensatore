@@ -17,7 +17,7 @@ export default function HeaderComponent(){
     const breadcrumbs = parsePathnameToBreadcrumbs(pathname);
     return (<>
         <nav className="w-full pl-52">
-            <div className="w-full flex flex-row items-center justify-between border-b border-gray-400/20 px-12 py-1.5">
+            <div className="w-full flex bg-base-200 dark:bg-base-100 flex-row items-center justify-between border-b border-gray-300 dark:border-gray-400/20 px-12 py-1.5">
                 <div className="flex flex-row items-center">
                     <div className="breadcrumbs text-sm">
                         <ul>

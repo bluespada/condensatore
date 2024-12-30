@@ -28,7 +28,7 @@ import { usePathname } from 'next/navigation';
 export default function SidebarComponent(){
     return (<>
         <aside className="fixed top-0 left-0 w-52 z-[2]">
-            <div className="w-full h-screen dark:bg-base-100 bg-base-200 overflow-hidden flex flex-col justify-between border-r dark:border-gray-400/20 border-gray-300">
+            <div className="w-full h-screen dark:bg-base-200 bg-base-100 overflow-hidden flex flex-col justify-between border-r dark:border-gray-400/20 border-gray-300">
                 <div>
                 </div>
                 <div className="w-full h-full flex flex-col overflow-y-auto">
@@ -68,7 +68,7 @@ export default function SidebarComponent(){
                     />
                     <SidebarItemMenu
                         icons={<TbSandbox size={20}/>}
-                        name="Kubernetes"
+                        name="Kubernets"
                         link="/kubernets"
                     />
                     <SidebarItemMenu

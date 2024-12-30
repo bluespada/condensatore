@@ -15,7 +15,7 @@ export interface ProjectNewFormComponentProps {
 export default function ProjectNewFormComponent(){
     return (<>
         <div className="w-full h-full pt-12">
-            <div className="card bg-base-200 w-full rounded-md border border-gray-300 dark:border-gray-400/15">
+            <div className="card bg-base-100 dark:bg-base-200 w-full rounded-md border border-gray-300 dark:border-gray-400/15">
                 <div className="card-body p-0 flex flex-col">
                     <div className="flex flex-col gap-1.5 border-b border-gray-300 dark:border-gray-400/15 px-6 py-2.5">
                         <span className="text-2xl">

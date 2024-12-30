@@ -7,7 +7,7 @@ export default function AppTemplate({ children }){
         <HeaderComponent/>
         <SidebarComponent/>
         <main className="pl-52 w-full h-full">
-            <div className="w-full h-full px-8">
+            <div className="dark:bg-base-100 bg-base-200 w-full h-full px-8">
                 { children }
             </div>
         </main>

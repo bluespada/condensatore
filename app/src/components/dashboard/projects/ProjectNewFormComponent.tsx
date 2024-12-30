@@ -1,12 +1,7 @@
 "use client";
 import React from 'react';
-import {
-    Input,
-    Selection,
-} from '@/components/common/input';
-import {
-    BiLogoGithub
-} from 'react-icons/bi';
+import { Input, Selection } from '@/components/common/input';
+import { BiLogoGithub } from 'react-icons/bi';
 import { ActionCreateProjects } from '@/actions/projects';
 
 export interface ProjectNewFormComponentProps {

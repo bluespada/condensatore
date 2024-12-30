@@ -11,8 +11,8 @@ export default function ProjectListComponent(props: ProjectListComponentProps){
     return props?.data.length == 0 ? (<ProjectEmpty/>): (<>
         <div className="w-full h-full grid grid-cols-12">
         {
-            props.data.map((i, k) => (<div
-                key={k}
+            props.data.map((i) => (<div
+                key={i.projectId}
                 className="col-span-4"
             >
                 <span>{i.name}</span>

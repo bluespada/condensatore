@@ -8,12 +8,6 @@ export interface ProjectNewFormComponentProps {
 }
 
 export default function ProjectNewFormComponent(){
-    const [formState, formAction] = React.useActionState(ActionCreateProjects, {});
-
-    React.useEffect(() => {
-        if(Object.keys(formState).length == 0) return;
-    }, [formState]);
-
     return (<>
         <div className="w-full h-full pt-12">
             <div className="card bg-base-100 dark:bg-base-200 w-full rounded-md border border-gray-300 dark:border-gray-400/15">

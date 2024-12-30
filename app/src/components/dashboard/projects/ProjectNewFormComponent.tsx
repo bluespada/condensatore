@@ -71,14 +71,14 @@ export default function ProjectNewFormComponent(){
                             placeholder="Select repositories"
                         />
                         <div className="w-full flex flex-row items-center justify-between pt-12">
-                            <button className="btn btn-primary btn-sm">
+                            <button className="btn btn-primary btn-sm" type="button">
                                 Back
                             </button>
                             <div className="flex flex-row items-center gap-3">
                                 <span className="dark:text-gray-300/30 text-gray-500 text-xs">
                                     <span className="italic">Tips</span>: You can still rename your project later
                                 </span>
-                                <button className="btn btn-sm btn-primary outline-none">
+                                <button className="btn btn-sm btn-primary outline-none" type="submit">
                                     Start endless journey
                                 </button>
                             </div>

@@ -16,6 +16,5 @@ Your support makes Condensatore better! ❤️ Sponsorships allow us to dedicate
 
 ## License
 
-Condensatore is under MIT License, You should have received a copy of MIT LIcense along with Condensatore source code.
+Condensatore is under MLL License, You should have received a copy of MLL License along with Condensatore source code.
 
-If not, see [MIT License](https://mit-license.org)

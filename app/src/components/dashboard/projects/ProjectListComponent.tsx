@@ -15,8 +15,8 @@ export default function ProjectListComponent(props: ProjectListComponentProps){
 
 export function ProjectEmpty(){
     return (<>
-        <div className="w-full h-full min-h-screen flex flex-col items-center">
-            <div className="pb-24">
+        <div className="w-full h-full flex flex-col items-center">
+            <div className="pb-8">
             </div>
             <div className="w-full h-[60vh] border dark:border-gray-400/20 border-gray-500 border-dashed flex flex-col items-center justify-center rounded-lg">
                 <span>

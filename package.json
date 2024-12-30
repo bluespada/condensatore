@@ -56,6 +56,7 @@
         "bun-types": "^1.1.42",
         "dotenv": "^16.4.7",
         "dotenv-cli": "^8.0.0",
+        "playwright": "^1.49.1",
         "prisma": "^6.1.0",
         "sass": "^1.83.0",
         "ts-node": "^10.9.2",

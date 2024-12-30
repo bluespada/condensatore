@@ -7,6 +7,11 @@
     ],
     "tasks": {
         "app:init": {
+            "cache": true,
+            "env": [
+            ]
+        },
+        "app:lint": {
             "cache": false,
             "env": [
                 "DATABASE_URL",
@@ -49,7 +54,7 @@
             "persistent": true
         },
         "build": {
-            "dependsOn": ["^build"],
+            "dependsOn": ["^build", "app:lint"],
             "outputs": ["dist/**"]
         },
         "start": {

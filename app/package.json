@@ -5,7 +5,9 @@
     "scripts": {
         "app:init": "bun run scripts/init.ts",
         "dev": "next dev -p 9000",
+        "build": "next build",
         "start": "bun run --bun next start -p 9000",
+        "app:lint": "bun run --bun next lint --dir src --fix",
         "db:migrate": "prisma migrate dev",
         "db:reset": "prisma migrate reset --force",
         "db:generate": "prisma generate",

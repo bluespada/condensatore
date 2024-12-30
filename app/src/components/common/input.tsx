@@ -192,6 +192,7 @@ export function Selection<T>(props: SelectionProps<T>){
                 {props.prefix}
                 <input
                     className={`rounded-lg bg-transparent cursor-pointer w-full hover:border-none hover:outline-none focus:outline-none focus:border-none`} 
+                    name={props.name}
                     readOnly
                     defaultValue={""}
                     placeholder={props.placeholder}

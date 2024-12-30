@@ -2,17 +2,23 @@
 import React from 'react';
 import {
     Input,
-    TextArea,
     Selection,
 } from '@/components/common/input';
 import {
     BiLogoGithub
 } from 'react-icons/bi';
+import { ActionCreateProjects } from '@/actions/projects';
 
 export interface ProjectNewFormComponentProps {
 }
 
 export default function ProjectNewFormComponent(){
+    const [formState, formAction] = React.useActionState(ActionCreateProjects, {});
+
+    React.useEffect(() => {
+        if(Object.keys(formState).length == 0) return;
+    }, [formState]);
+
     return (<>
         <div className="w-full h-full pt-12">
             <div className="card bg-base-100 dark:bg-base-200 w-full rounded-md border border-gray-300 dark:border-gray-400/15">
@@ -33,12 +39,25 @@ export default function ProjectNewFormComponent(){
                 </div>
                 <div className="min-h-[20px]">
                     <form
-                        className="flex flex-col gap-1.5 px-4 py-3"
+                        action={ActionCreateProjects}
+                        className="flex flex-col gap-3 px-4 py-3"
                     >
                         <Input
                             label="Project Name"
+                            name="name"
                             placeholder="Project Name"
                             required
+                        />
+                        <Selection
+                            label="User or Organization"
+                            prefix={(<BiLogoGithub size={20}/>)}
+                            options={[
+                                {
+                                    key: 0,
+                                    value: "https://github.com/mathca-labs/condensatore"
+                                }
+                            ]}
+                            placeholder="Select User or Organization"
                         />
                         <Selection
                             label="Select Repositories"
@@ -51,6 +70,19 @@ export default function ProjectNewFormComponent(){
                             ]}
                             placeholder="Select repositories"
                         />
+                        <div className="w-full flex flex-row items-center justify-between pt-12">
+                            <button className="btn btn-primary btn-sm">
+                                Back
+                            </button>
+                            <div className="flex flex-row items-center gap-3">
+                                <span className="dark:text-gray-300/30 text-gray-500 text-xs">
+                                    <span className="italic">Tips</span>: You can still rename your project later
+                                </span>
+                                <button className="btn btn-sm btn-primary outline-none">
+                                    Start endless journey
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

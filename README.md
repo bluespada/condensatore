@@ -1,6 +1,6 @@
 # condensatore
 
-Condensatore is a open source Paas (Platform as Service).
+Condensatore is a open source Paas (Platform as Service) under AGPL-3.0 License.
 
 ## Contributing
 Contributions are welcome!, please fork the repository and submit pull request.
@@ -13,8 +13,3 @@ Your support makes Condensatore better! ❤️ Sponsorships allow us to dedicate
 
 **How You Can Sponsor**
 - Become [GitHub Sponsor](https://github.com/sponsors/mathca-labs).
-
-## License
-
-Condensatore is under MLL License, You should have received a copy of MLL License along with Condensatore source code.
-
